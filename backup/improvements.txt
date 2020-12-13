@@ -1,0 +1,4 @@
+I'll try to blur the background when the add new idea menu is displayed. It's purely esthetics though.
+
+search bar will be a tough nut to crack, but it will be possible
+

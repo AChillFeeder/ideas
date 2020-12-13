@@ -1,53 +1,40 @@
 
 from flask import Flask, render_template, request
 import json
+import os
 
 app = Flask(__name__)
+
+backup = 'backup' # file where topics and ideas are stored
+
+def get_content():
+    content = {}
+    topics = os.listdir(os.path.join(os.getcwd(), f'{backup}'))
+    for topic in topics:
+        topic = topic.replace('.txt', '')
+        with open(f'{backup}\\{topic}.txt', 'r') as file:
+            ideas = file.read().split('\n\n')
+        content[topic] = ideas
+    return content
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        pass #
+        idea = request.form['idea']
+        topic = request.form['topic']
 
-    user = User.login(
-        'nagakabourous',
-        '1UPPER1lower1digit.'
-    )
-    return render_template('index.html', user=user)
+        with open(f'{backup}\\{topic}.txt', 'a') as file:
+            file.write(idea + '\n\n')
 
-# how to deny access to subdirectories in flask?
+    with open('settings.json', 'r') as file:
+        settings = json.loads(file.read())
 
-class User:
-    def __init__(self, name, topics, username, password, profile_image='thee.jpg') -> object:
-        self.name = name
-        self.topics = topics
-        self.username = username
-        self.password = password
-        self.profile_image = profile_image
+    content = get_content()
 
-        self.dark_mode = True
-        self.secondary_color = 'rgb(55, 109, 42)'
-
-    @classmethod
-    def login(cls, username, password): 
-        with open('settings.json', 'r') as file:
-                settings = json.loads( file.read() )
-        with open('topics.json', 'r') as file:
-                topics = json.loads( file.read() )
-
-        if settings['username'] == username and settings['password'] == password:
-            return cls(
-                settings['name'],
-                topics,
-                settings['username'],
-                settings['password'],
-                settings['profile-image'],
-            )
-
+    return render_template('index.html', settings=settings, content=content)
 
 
 app.run('0.0.0.0', 80, True)
-
 
 
 

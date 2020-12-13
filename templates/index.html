@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="side-bar">
-        <div id="profile-image" style='background-image: url("../static/thee.jpg");'></div>
+        <div id="profile-image" style="background-image: url({{ url_for('static', filename=settings['profile-image']) }});"></div>
         <ul>
             <li class="clickable">My topics</li>
             <li class="clickable">My ideas</li>
@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div id="main">
-        <h1>{{user.name}}'s dashboard</h1>
+        <h1>{{settings.name}}'s dashboard</h1>
         <p>
             Here you will find all sorts of settings to 
             customize your account. <br>
@@ -33,10 +33,12 @@
 
         <div id="panel">
             <ul id='ideas'>
-                {% for topic in user.topics %}
+                {% for topic in content %}
                     <h2>{{ topic }} :</h2>
-                    {% for idea in user.topics[topic] %}
-                        <li>idea</li>
+                    {% for idea in content[topic] %}
+                        {% if idea %}
+                            <li>{{ idea }}</li>
+                        {% endif %}
                     {% endfor %}
                 {% endfor %}
             </ul>
