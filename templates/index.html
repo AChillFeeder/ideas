@@ -48,22 +48,30 @@
     </div>
     <div id="new-idea">
         <h1>Add a new idea:</h1>
-        <form action="" method="POST">
+        <form id='idea-form' action="" method="POST">
             <label for="idea">Idea: </label>
             <input type="text" name="idea" id="idea" spellcheck="false">
             <br>
             <label for="topic">Topic: </label>
             <input type="text" name="topic" id="topic" spellcheck="false">
             <br>
-            <input type="submit" value="Add" id='add-idea' class='clickable'>
-            <button id="close" class='clickable'>Close</button>
+            <input type="submit" value="Add" id='add-idea' class='clickable' onclick="document.getElementById('idea-form').submit();">
+            <button id="close" class='clickable' id='close-idea-menu' onclick="toggle_add_new_idea_menu()">Close</button>
         </form>
     </div>
     <script>
-        document.getElementById('new-idea').style.display = 'none';
-        function toggle_add_new_idea_menu(){
-            document.getElementById('new-idea').style.display = 'block';
-        }
+        document.getElementById('idea-form').addEventListener('submit', (event)=>{
+            event.preventDefault();
+        })
+
+        function toggle_add_new_idea_menu() {
+        var x = document.getElementById("new-idea");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        } 
     </script>
 </body>
 </html>
