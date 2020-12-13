@@ -15,7 +15,6 @@
 
 html, body{
     height: 100%;
-    overflow: hidden;
     color: var(--contrast-color);
     background-color: var(--primary-color);
 }
@@ -35,6 +34,7 @@ html, body{
     border-right: 2px solid var(--contrast-color);
     height: 100%;
     text-align: center;
+    position: fixed;
 }
 
     #profile-image{
@@ -88,7 +88,7 @@ html, body{
     #main h1{
         font-size: 2.5em;
         line-height: 1.2em;
-        margin-top: 5%;
+        /* margin-top: 0%; */
     }
 
     #main p{
@@ -100,11 +100,40 @@ html, body{
         height: 100%;
     }
 
+    #search{
+        /* border: 1px solid var(--contrast-color); */
+        /* padding: 20px 5%; */
+        width: 60%;
+        margin-top: 50px;
+    }
+
+        #search #search_form{
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--contrast-color);
+            width: 80%;
+            margin-bottom: 0;
+            display: inline-block;
+            outline: none;
+            padding: 10px;
+            font-size: 1.5em;
+            color: var(--contrast-color);
+        }
+
+        #search img{
+            transform: scale(0.7);
+            float: right;
+            /* display: inline-block; */
+            padding: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
     #main ul{
         border-top: 1px solid var(--contrast-color);
         border-bottom: 1px solid var(--contrast-color);
         padding: 5% 20px 0;
-        height: 40%;
+        height: 50%;
         overflow-y: scroll;
         list-style: none;
     }
@@ -139,7 +168,7 @@ html, body{
 
 #add{
     /* display: none; */
-    position: absolute;
+    position: fixed;
     right: 5%;
     bottom: 7%;
     padding: 15px;
