@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div id="side-bar">
-        <div id="profile-image" style="background-image: none;"></div>
+        <div id="profile-image" style='background-image: url("../static/thee.jpg");'></div>
         <ul>
-            <li>My topics</li>
-            <li>Settings</li>
-            <li>Reminders</li>
+            <li class="clickable">My topics</li>
+            <li class="clickable">My ideas</li>
+            <li class="clickable">Settings</li>
         </ul>
     </div>
     <div id="main">
         <h1>{{user.name}}'s dashboard</h1>
+        <p>
+            Here you will find all sorts of settings to 
+            customize your account. <br>
+            Click on the '+' sign below to add a new idea!
+        </p>
         <div id="panel">
-            <p> There are no settings to show right now </p>
+            <ul>
+
+            </ul>
+            <input type="submit" value="Save" class="clickable">
         </div>
     </div>
-    <div id="add"></div>
+    <div id="add" class="clickable">
+        <img src="/static/plus_sign_black.png" alt="plus-sign">
+    </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 
 from flask import Flask, render_template
+import json
 
 app = Flask(__name__)
 
@@ -29,9 +30,10 @@ class User:
                 'username': string,
                 'password': string, # hashed possibly
                 'name': string,
+                'main-color': string,
+                'dark-mode': boolean,
             }
         """
-        import json # we'll use JSON in this function exclusively, so there's no need to import it at the start
         if settings:
             # change settings
             with open('settings.json', 'w') as file:
