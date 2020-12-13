@@ -67,13 +67,35 @@
         })
 
         function toggle_add_new_idea_menu() {
-        var x = document.getElementById("new-idea");
-            if (x.style.display === "none") {
-                x.style.display = "block";
+
+            let new_idea = document.getElementById("new-idea");
+            let side_bar = document.getElementById("side-bar");
+            let main = document.getElementById("main");
+            
+            if (new_idea.style.display === "none") {
+                new_idea.style.display = "block";
+                side_bar.style.webkitFilter = "blur(2px)";
+                main.style.webkitFilter = "blur(2px)";
             } else {
-                x.style.display = "none";
+                new_idea.style.display = "none";
+                side_bar.style.webkitFilter = "blur(0)";
+                main.style.webkitFilter = "blur(0)";
             }
         } 
+
+        search_bar = document.getElementById('search_form');
+        search_bar.oninput = () => {
+            let ancestor = document.getElementById('ideas'),
+                descendents = ancestor.getElementsByTagName('*');
+            for (i=0; i< descendents.length; ++i){ 
+                if (!descendents[i].innerHTML.includes(search_bar.value) & descendents[i].tagName == 'LI'){
+                    descendents[i].style.display = 'none';
+                }
+                else{
+                    descendents[i].style.display = 'block';
+                }
+            }
+        };
     </script>
 </body>
 </html>
