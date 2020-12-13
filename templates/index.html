@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div id="side-bar">
+        <div id="profile-image" style='background-image: url("../static/thee.jpg");'></div>
+        <ul>
+            <li class="clickable">My topics</li>
+            <li class="clickable">My ideas</li>
+            <li class="clickable">Settings</li>
+        </ul>
+    </div>
+    <div id="main">
+        <h1>{{user.name}}'s dashboard</h1>
+        <p>
+            Here you will find all sorts of settings to 
+            customize your account. <br>
+            Click on the '+' sign below to add a new idea!
+        </p>
+
+        <div id="search">
+            <input type="text" name="search_form" id="search_form" spellcheck="false">
+            <img src="/static/search_black.png" alt="search icon" class="clickable">
+        </div>
+
+        <div id="panel">
+            <ul id='ideas'>
+                {% for topic in user.topics %}
+                    <h2>{{ topic }} :</h2>
+                    {% for idea in user.topics[topic] %}
+                        <li>idea</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+            <button onclick="toggle_add_new_idea_menu()" class="clickable">New idea</button>
+        </div>
+    </div>
+    <div id="add" class="clickable">
+        <img src="/static/plus_sign_black.png" alt="plus-sign">
+    </div>
+    <div id="new-idea">
+        <h1>Add a new idea:</h1>
+        <form action="" method="POST">
+            <label for="idea">Idea: </label>
+            <input type="text" name="idea" id="idea" spellcheck="false">
+            <br>
+            <label for="topic">Topic: </label>
+            <input type="text" name="topic" id="topic" spellcheck="false">
+            <br>
+            <input type="submit" value="Add" id='add-idea' class='clickable'>
+            <button id="close" class='clickable'>Close</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('new-idea').style.display = 'none';
+        function toggle_add_new_idea_menu(){
+            document.getElementById('new-idea').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
