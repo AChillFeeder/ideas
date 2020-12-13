@@ -1,57 +1,77 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 
 app = Flask(__name__)
 
-app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        pass #
+
+    user = User.login(
+        'nagakabourous',
+        '1UPPER1lower1digit.'
+    )
+    return render_template('index.html', user=user)
 
 # how to deny access to subdirectories in flask?
 
 class User:
-    def __init__(self, name, topics) -> object:
+    def __init__(self, name, topics, username, password, profile_image='thee.jpg') -> object:
         self.name = name
-        self.topics = topics # array
-        self.username = 'nagakabourous'
-        self.password = '1UPPER1lower1digit.'
+        self.topics = topics
+        self.username = username
+        self.password = password
+        self.profile_image = profile_image
 
-    def login(self, username, password): # might cause an error, test both cases
-        return (username == self.username and password == self.password)
+        self.dark_mode = True
+        self.secondary_color = 'rgb(55, 109, 42)'
 
-    def settings(settings = {}):
-        """
-            This function is our middle-man to the JSON file
-            if an argument or a non-empty dictionary is supplied then the function changes current settings
-            else it returns the current settings
+    @classmethod
+    def login(cls, username, password): 
+        with open('settings.json', 'r') as file:
+                settings = json.loads( file.read() )
+        with open('topics.json', 'r') as file:
+                topics = json.loads( file.read() )
 
-            settings = {
-                'username': string,
-                'password': string, # hashed possibly
-                'name': string,
-                'main-color': string,
-                'dark-mode': boolean,
-            }
-        """
-        if settings:
-            # change settings
-            with open('settings.json', 'w') as file:
-                file.write( json.dumps(settings) )
-        else:
-            with open('settings.json', 'r') as file:
-                return json.loads( file.read() )
+        if settings['username'] == username and settings['password'] == password:
+            return cls(
+                settings['name'],
+                topics,
+                settings['username'],
+                settings['password'],
+                settings['profile-image'],
+            )
 
 
-class Topic:
-    def __init__(self, title, tags, ideas=[]) -> object:
-        self.title = title # str
-        self.tags = tags # array
-        self.ideas = ideas # array
 
-    def add_idea(self, idea):
-        self.ideas.append(idea)
+app.run('0.0.0.0', 80, True)
 
+
+
+
+
+
+
+
+# POPULATE JSON FILES:
+# User.settings({
+#     'username': 'nagakabourous',
+#     'password': '1UPPER1lower1digit.',
+#     'name': 'Reda',
+#     'profile-image': 'thee.jpg',
+#     'dark-mode': False,
+#     'secondary-color': 'rgb(55, 109, 42)'
+# })
+
+# with open('topics.json', 'w') as file:
+#     file.write( json.dumps(
+#     {
+#     'topic1': ['idea1','idea2','idea3','idea4'],
+#     'topic2': ['idea1','idea2','idea3','idea4'],
+#     }
+# ))
 
 
 

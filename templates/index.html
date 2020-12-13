@@ -33,30 +33,31 @@
 
         <div id="panel">
             <ul id='ideas'>
-                <li>
-                    Barbell rows:
-                        - feet placement: hips - feet - shoulder
-                        - bar lay on midfoot
-                        - grab bar outside of width of your knees (can experiment on this, wide=upper narrow=lats)
-                </li>
-                <li>
-                    English:
-                        - find polycopies (check e-cours everyday)
-                        - find courses outline and search for them online
-                        - review and get done with subjects as soon as possible
-                </li>
-                <li>
-                    To-buy:
-                        - batteries
-                        - HDMI
-                        - make posters of python thingies and stick it to the wall
-                </li>
+                {% for topic in user.topics %}
+                    <h2>{{ topic }} :</h2>
+                    {% for idea in user.topics[topic] %}
+                        <li>idea</li>
+                    {% endfor %}
+                {% endfor %}
             </ul>
-            <input type="submit" value="Save" class="clickable">
+            <input type="submit" value="New Idea" class="clickable">
         </div>
     </div>
     <div id="add" class="clickable">
         <img src="/static/plus_sign_black.png" alt="plus-sign">
+    </div>
+    <div id="new-idea">
+        <h1>Add a new idea:</h1>
+        <form action="" method="POST">
+            <label for="idea">Idea: </label>
+            <input type="text" name="idea" id="idea">
+            <br>
+            <label for="topic">Topic: </label>
+            <input type="text" name="topic" id="topic">
+            <br>
+            <input type="submit" value="Add">
+            <button id="close">Close</button>
+        </form>
     </div>
 </body>
 </html>
