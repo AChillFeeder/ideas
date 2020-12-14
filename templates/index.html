@@ -9,7 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;700&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet"> 
 </head>
-<body>
+<body style="
+        --primary-color: {{ 'rgb(31, 30, 30)' if settings['dark-mode'] else 'white' }};
+        --contrast-color: {{ 'white' if settings['dark-mode'] else 'rgb(31, 30, 30)' }};
+        --secondary-color: {{ settings['secondary-color'] }};
+">
+
     <div id="side-bar">
         <div id="profile-image" style="background-image: url({{ url_for('static', filename=settings['profile-image']) }});"></div>
         <ul>

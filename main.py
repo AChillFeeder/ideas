@@ -30,7 +30,6 @@ def index():
         settings = json.loads(file.read())
 
     content = get_content()
-
     return render_template('index.html', settings=settings, content=content)
 
 
