@@ -49,10 +49,26 @@ def index():
     content = get_content()
     return render_template('index.html', settings=settings, content=content)
 
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+
+    with open('settings.json', 'r') as file:
+            settings = json.loads(file.read())
+
+    if request.method == 'POST':
+
+        settings["secondary-color"] = request.form.get('color') or settings["secondary-color"]
+        settings["dark-mode"] = bool(request.form.get('dark-mode'))
+
+        with open('settings.json', 'w') as file:
+            file.write( json.dumps(settings) )
+
+    return render_template('settings.html', settings=settings)
+
 
 app.run('0.0.0.0', 80, True)
 
 
 
-
+# rgb(87, 121, 184)
 

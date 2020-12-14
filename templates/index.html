@@ -18,9 +18,9 @@
     <div id="side-bar">
         <div id="profile-image" style="background-image: url({{ url_for('static', filename=settings['profile-image']) }});"></div>
         <ul>
-            <li class="clickable">My ideas</li>
-            <li class="clickable">Something</li>
-            <li class="clickable">Settings</li>
+            <li class="clickable"><a href="/"> My ideas </a></li>
+            <li class="clickable"><a href=""> Placeholder </a></li>
+            <li class="clickable"><a href="/settings"> Settings </a></li>
         </ul>
     </div>
     <div id="main">
@@ -69,13 +69,13 @@
         document.getElementById('idea-form').addEventListener('submit', (event)=>{
             event.preventDefault();
         })
+        var new_idea = document.getElementById("new-idea");
+        var side_bar = document.getElementById("side-bar");
+        var main = document.getElementById("main");
+        new_idea.style.display = "none";
 
         function toggle_add_new_idea_menu() {
 
-            let new_idea = document.getElementById("new-idea");
-            let side_bar = document.getElementById("side-bar");
-            let main = document.getElementById("main");
-            
             if (new_idea.style.display === "none") {
                 new_idea.style.display = "block";
                 side_bar.style.webkitFilter = "blur(2px)";

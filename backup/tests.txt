@@ -1,4 +1,2 @@
 test search bar with weird characters or huge lists, the function doesn't care about performance so it's most likely lacking
 
-Testing os.path.join change
-

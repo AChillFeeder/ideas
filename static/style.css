@@ -13,10 +13,16 @@
     /* --secondary-color:  rgb(87, 121, 184); */
 }
 
+
 html, body{
     height: 100%;
     color: var(--contrast-color);
     background-color: var(--primary-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--contrast-color);
 }
 
 .clickable{
@@ -155,7 +161,7 @@ html, body{
         margin-bottom: 5%;
     }
     
-    #main #panel button{
+    #main #panel button, #save-settings{
         font-size: 0.8em;
         font-weight: bold;
         padding: 10px;
@@ -166,7 +172,7 @@ html, body{
         border: 2px solid var(--contrast-color);
         color: var(--contrast-color);
     }
-    #main #panel button:hover{
+    #main #panel button:hover, #save-settings:hover{
         background-color: transparent;
     }
 
@@ -198,7 +204,7 @@ html, body{
     top: 10%;
     padding: 5%;
 
-    display: none;
+    /* display: none; */
 }
 
     #new-idea h1{
@@ -207,7 +213,7 @@ html, body{
 
     #new-idea form{
         font-size: 1.3em;
-        border: 2px solid var(--contrast-color);
+        /* border: 2px solid var(--contrast-color); */
         padding: 5%;
         margin-top: 5%;
         height: 60%;

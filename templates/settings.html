@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/settings.css">
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet"> 
+</head>
+<body style="
+        --primary-color: {{ 'rgb(31, 30, 30)' if settings['dark-mode'] else 'white' }};
+        --contrast-color: {{ 'white' if settings['dark-mode'] else 'rgb(31, 30, 30)' }};
+        --secondary-color: {{ settings['secondary-color'] }};
+">
+
+    <div id="side-bar">
+        <div id="profile-image" style="background-image: url({{ url_for('static', filename=settings['profile-image']) }});"></div>
+        <ul>
+            <a href="/"><li class="clickable">My ideas </li></a>
+            <a href=""><li class="clickable"> Placeholder </li></a>
+            <a href="/settings"><li class="clickable"> Settings </li></a>
+        </ul>
+    </div>
+    <div id="main">
+        <h1>{{settings.name}}'s settings</h1>
+        <p>
+            Here you can change your account settings like profile image and theme color
+        </p>
+
+        <div id="panel">
+            <form action="" method="post" id="settings">
+                <input type="color" name="color" id="color">
+                <label for="color">Color </label>
+                <br>
+                <input type="checkbox" name="dark-mode" id="dark-mode">
+                <label for="dark-mode">Dark-mode </label>
+                <br>
+                <input type="submit" id='save-settings' class="clickable" value="Save settings">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>

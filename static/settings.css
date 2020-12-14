@@ -1,0 +1,14 @@
+
+#panel #settings{
+    border-top: 1px solid var(--contrast-color);
+    border-bottom: 1px solid var(--contrast-color);
+    padding: 5%;
+}
+
+#panel #settings label{
+    margin-left: 5%;
+}
+
+#panel #settings #save-settings{
+    width: 40%;
+}
