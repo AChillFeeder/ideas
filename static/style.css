@@ -146,11 +146,14 @@ a{
         }
 
         #main #ideas li{
+            white-space: pre-wrap;
+
             border: 1px solid var(--contrast-color);
             padding: 10px;
+            padding-left: 2%;
             margin-bottom: 20px;
             background-color: var(--secondary-color);
-            width: 98%;
+            width: 96%;
         }
 
     #main input{

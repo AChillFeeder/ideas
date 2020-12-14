@@ -1,2 +1,0 @@
-apparently the add-new-idea menu doesn't appear from the first click, it needs to be clicked twice (fixed)
-

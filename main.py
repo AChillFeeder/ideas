@@ -37,7 +37,7 @@ def index():
         A menu on the left allows the user to navigate the app.
     """
     if request.method == 'POST':
-        idea = request.form['idea']
+        idea = request.form['idea'].replace('...', '\n')
         topic = request.form['topic']
 
         with open( os.path.join(f'{backup}', f'{topic}.txt'), 'a') as file: # It's better to use os.path.join for better portability
