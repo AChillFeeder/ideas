@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="stylesheet" href="/static/settings.css">
     <title>Dashboard</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;700&display=swap" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet"> 
 </head>
 <body style="
         --primary-color: {{ 'rgb(31, 30, 30)' if settings['dark-mode'] else 'white' }};
@@ -38,11 +33,18 @@
                 <input type="checkbox" name="dark-mode" id="dark-mode">
                 <label for="dark-mode">Dark-mode </label>
                 <br>
+                <input type="file" name="profile-image-upload" id="profile-image-upload">
+                <label for="profile-image-upload" id='profile-image-upload-button' class="clickable">Choose file </label>
+                <label for="profile-image-upload">Profile image </label>
+                <br>
                 <input type="submit" id='save-settings' class="clickable" value="Save settings">
             </form>
         </div>
     </div>
-
-
+    
 </body>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet"> 
 </html>

@@ -5,10 +5,35 @@
     padding: 5%;
 }
 
-#panel #settings label{
-    margin-left: 5%;
-}
+    #panel #settings label{
+        margin-left: 5%;
+    }
 
-#panel #settings #save-settings{
-    width: 40%;
-}
+    #panel #settings #save-settings{
+        width: 40%;
+    }
+
+    #panel #settings #profile-image-upload{
+        display: none;
+    }
+
+    #panel #settings #color, #dark-mode{
+        margin-left: 5%;
+    }
+
+    #panel #profile-image-upload-button{
+        font-size: 0.7em;
+        font-weight: bold;
+        padding: 10px 20px;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 30px;
+        background-color: var(--secondary-color);
+        border: 2px solid var(--contrast-color);
+        color: var(--contrast-color);
+    }
+
+
+
+

@@ -2,8 +2,6 @@
     padding: 0;
     margin: 0;
     font-family: 'Kumbh Sans', sans-serif; 
-    
-
 }
 
 :root{
@@ -25,11 +23,9 @@ a{
     color: var(--contrast-color);
 }
 
-.clickable{
+.clickable:hover{
     transition-duration: 1s;
     transition-property: background-color color border;
-}
-.clickable:hover{
     cursor: pointer;
 }
 
@@ -77,6 +73,7 @@ a{
             border: 1px solid var(--contrast-color);
             background-color: var(--primary-color);
             margin-bottom: 10px;
+            letter-spacing: 3px;
         }
         #side-bar li:hover{
             background-color: var(--secondary-color);

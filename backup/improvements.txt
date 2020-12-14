@@ -6,3 +6,5 @@ The user isn't able to change settings without having to set the theme color aga
 
 Change name and upload a different picture.
 
+Smaller screens support
+
