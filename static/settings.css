@@ -35,5 +35,14 @@
     }
 
 
-
-
+@media screen and (max-width: 1000px){
+    #panel #settings{
+        padding-top: 10%;
+    }
+    #panel #settings input{
+        margin-bottom: 15%;
+    }
+    #panel #settings #save-settings {
+        width: 100%;
+    }
+}
