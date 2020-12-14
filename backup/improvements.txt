@@ -4,3 +4,5 @@ search icon should be a part of the input bar
 
 spam comments
 
+Besides ideas and settings, what other sections can I add?
+

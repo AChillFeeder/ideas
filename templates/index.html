@@ -18,17 +18,16 @@
     <div id="side-bar">
         <div id="profile-image" style="background-image: url({{ url_for('static', filename=settings['profile-image']) }});"></div>
         <ul>
-            <li class="clickable">My topics</li>
             <li class="clickable">My ideas</li>
+            <li class="clickable">Something</li>
             <li class="clickable">Settings</li>
         </ul>
     </div>
     <div id="main">
         <h1>{{settings.name}}'s dashboard</h1>
         <p>
-            Here you will find all sorts of settings to 
-            customize your account. <br>
-            Click on the '+' sign below to add a new idea!
+            Here you can find all the idea you previously submitted.
+            Make sure to use the search bar if it starts taking a while to sift through your entries!
         </p>
 
         <div id="search">
