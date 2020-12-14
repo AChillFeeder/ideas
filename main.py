@@ -7,23 +7,40 @@ app = Flask(__name__)
 
 backup = 'backup' # file where topics and ideas are stored
 
-def get_content():
+def get_content() -> dict:
+    """
+        This function goes through content files (in backup folder)
+        backup files have their TOPIC as title and their IDEAS as content, ideas are separated by 2 NEWLINES.
+        the return value is a dictionary that has every topic as key, and the topic's respective ideas in an array as value.
+
+        example:
+        content = {
+            'topic1': [idea1, idea2],
+            'topic2': [idea1, idea2],
+        }
+    """
     content = {}
     topics = os.listdir(os.path.join(os.getcwd(), f'{backup}'))
     for topic in topics:
-        topic = topic.replace('.txt', '')
+        topic = topic.replace('.txt', '') # otherwise the extension would be showing in the user interface
         with open(f'{backup}\\{topic}.txt', 'r') as file:
             ideas = file.read().split('\n\n')
         content[topic] = ideas
     return content
 
+
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
+    """
+        It's the first page that the user will land on, it allows to browse ideas and add new ones.
+        A menu on the left allows the user to navigate the app.
+    """
     if request.method == 'POST':
         idea = request.form['idea']
         topic = request.form['topic']
 
-        with open(f'{backup}\\{topic}.txt', 'a') as file:
+        with open( os.path.join(f'{backup}', f'{topic}.txt'), 'a') as file: # It's better to use os.path.join for better portability
             file.write(idea + '\n\n')
 
     with open('settings.json', 'r') as file:
@@ -36,28 +53,6 @@ def index():
 app.run('0.0.0.0', 80, True)
 
 
-
-
-
-
-
-# POPULATE JSON FILES:
-# User.settings({
-#     'username': 'nagakabourous',
-#     'password': '1UPPER1lower1digit.',
-#     'name': 'Reda',
-#     'profile-image': 'thee.jpg',
-#     'dark-mode': False,
-#     'secondary-color': 'rgb(55, 109, 42)'
-# })
-
-# with open('topics.json', 'w') as file:
-#     file.write( json.dumps(
-#     {
-#     'topic1': ['idea1','idea2','idea3','idea4'],
-#     'topic2': ['idea1','idea2','idea3','idea4'],
-#     }
-# ))
 
 
 

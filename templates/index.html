@@ -93,7 +93,7 @@
             let ancestor = document.getElementById('ideas'),
                 descendents = ancestor.getElementsByTagName('*');
             for (i=0; i< descendents.length; ++i){ 
-                if (!descendents[i].innerHTML.includes(search_bar.value) & descendents[i].tagName == 'LI'){
+                if (!descendents[i].innerHTML.toLowerCase().includes(search_bar.value.toLowerCase()) & descendents[i].tagName == 'LI'){
                     descendents[i].style.display = 'none';
                 }
                 else{

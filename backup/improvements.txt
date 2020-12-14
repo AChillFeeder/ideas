@@ -2,3 +2,5 @@ Some way to delete ideas?
 
 search icon should be a part of the input bar
 
+spam comments
+
