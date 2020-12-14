@@ -8,3 +8,7 @@ Change name and upload a different picture.
 
 Smaller screens support
 
+More markdown options
+
+Text are instead of one line input
+

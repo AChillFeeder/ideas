@@ -15,9 +15,9 @@
     <div id="side-bar">
         <div id="profile-image" style="background-image: url({{ url_for('static', filename=settings['profile-image']) }});"></div>
         <ul>
-            <li class="clickable"><a href="/"> My ideas </a></li>
-            <li class="clickable"><a href=""> Placeholder </a></li>
-            <li class="clickable"><a href="/settings"> Settings </a></li>
+            <a href="/"><li class="clickable"> My ideas </li></a>
+            <a href=""><li class="clickable"> Placeholder </li></a>
+            <a href="/settings"><li class="clickable"> Settings </li></a>
         </ul>
     </div>
     <div id="main">
