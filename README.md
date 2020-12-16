@@ -29,6 +29,6 @@ The app works pretty well on phones too, here's what it looks like:
 ![Responsive design](https://github.com/AChillFeeder/ideas/blob/master/screenshots/Capture5.PNG)
 
 
-
+# Stack
 "Ideas" run on Python/Flask, the obvious choice would be to use databases here but I opted for a more basic Folder/TXT file approach because I want to have the app support files as ideas and other shenanigans like file restoration and plenty of other interesting features!
 The front-end side contains HTML/CSS and a bit of vanilla Javascript, no frameworks. I want to understand everything (well no EVERYTHING) there is to understand about Javascript in webdev before picking a framework so I get to know the things that happen behind the curtains, I think learning a framework too early would get me to use things I don't really understand enough.
