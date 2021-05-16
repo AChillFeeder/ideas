@@ -1,4 +1,4 @@
-# ideas
+# Ideas
 With so many new things I'm trying to learn, things start to get messy very easily and sometimes ideas are lost altogether.
 So I made this small app that allows you to type whatever ideas you have and group them in topics so things get a bit clearer and you wouldn't have to worry about losing interesting thought anymore.
 
