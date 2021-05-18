@@ -30,5 +30,8 @@ The app works pretty well on phones too, here's what it looks like:
 
 
 # Stack
-"Ideas" run on Python/Flask, the obvious choice would be to use databases here but I opted for a more basic Folder/TXT file approach because I want to have the app support files as ideas and other shenanigans like file restoration and plenty of other interesting features!
-The front-end side contains HTML/CSS and a bit of vanilla Javascript, no frameworks. I want to understand everything (well no EVERYTHING) there is to understand about Javascript in webdev before picking a framework so I get to know the things that happen behind the curtains, I think learning a framework too early would get me to use things I don't really understand enough.
+"Ideas" run on Python/Flask, the obvious choice would be to use databases here but I opted for a more basic Folder/TXT file approach as a temporary system until I get a database up and rolling, consider it a proof of concept or something.
+The front-end side contains HTML/CSS and a bit of vanilla Javascript, no frameworks. I want to understand everything (well not EVERYTHING) there is to understand about Javascript in webdev before picking a framework so I get to know the things that happen behind the curtains, I think learning a framework too early would get me to use things I don't really understand enough.
+
+# Future changes
+- [ ] Only show the Topics, ideas should be shown separately when the user chooses a topic to delve in. 
